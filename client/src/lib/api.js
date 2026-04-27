@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://arch-gen-ai-eight.vercel.app/";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://archgen-ai-pwg3.onrender.com";
 
 export async function generateArchitecture(requirement) {
   const response = await fetch(`${API_BASE_URL}/api/architecture/generate`, {
