@@ -21,9 +21,14 @@ router.post("/generate", async (request, response, next) => {
       try {
         googleAgentReview = await generateGoogleAgentReview(requirement, report);
       } catch (reviewError) {
+        const reviewSummary =
+          reviewError.statusCode === 429
+            ? "Google Gemini quota is exhausted or unavailable for the configured API project. Add a working Gemini key or enable quota/billing, then retry."
+            : reviewError.message;
+
         googleAgentReview = {
           verdict: "Google review agent unavailable",
-          summary: reviewError.message,
+          summary: reviewSummary,
           mvpRisks: [],
           missingModules: [],
           securityGaps: [],

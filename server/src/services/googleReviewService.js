@@ -48,15 +48,20 @@ export async function generateGoogleAgentReview(requirement, report) {
   }
 
   const ai = new GoogleGenAI({ apiKey });
-  const response = await ai.models.generateContent({
-    model,
-    contents: buildGoogleReviewPrompt(requirement, report),
-    config: {
-      temperature: 0.3,
-      responseMimeType: "application/json"
-    }
-  });
+  try {
+    const response = await ai.models.generateContent({
+      model,
+      contents: buildGoogleReviewPrompt(requirement, report),
+      config: {
+        temperature: 0.3,
+        responseMimeType: "application/json"
+      }
+    });
 
-  return normalizeGoogleReview(extractJson(response.text || ""));
+    return normalizeGoogleReview(extractJson(response.text || ""));
+  } catch (error) {
+    const wrappedError = new Error(error.message || "Google review agent request failed.");
+    wrappedError.statusCode = error.status || error.code || 500;
+    throw wrappedError;
+  }
 }
-
