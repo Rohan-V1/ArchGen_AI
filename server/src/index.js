@@ -16,6 +16,17 @@ app.use(
 );
 app.use(express.json({ limit: "1mb" }));
 
+app.get("/", (_request, response) => {
+  response.json({
+    success: true,
+    message: "ArchGen AI backend is live.",
+    endpoints: {
+      health: "/api/health",
+      generateArchitecture: "/api/architecture/generate"
+    }
+  });
+});
+
 app.get("/api/health", (_request, response) => {
   response.json({
     success: true,
@@ -37,4 +48,3 @@ app.use((error, _request, response, _next) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
