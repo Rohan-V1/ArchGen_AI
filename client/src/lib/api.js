@@ -1,4 +1,7 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://archgen-ai-pwg3.onrender.com";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "https://archgen-ai-pwg3.onrender.com").replace(
+  /\/+$/,
+  ""
+);
 
 export async function generateArchitecture(requirement) {
   const response = await fetch(`${API_BASE_URL}/api/architecture/generate`, {
@@ -17,4 +20,3 @@ export async function generateArchitecture(requirement) {
 
   return payload.data;
 }
-
