@@ -38,7 +38,7 @@ export default function App() {
           <p>Requirement to System Architecture Generator</p>
         </div>
         <a href="https://groq.com/" target="_blank" rel="noreferrer">
-          Powered by Groq Llama 3
+          Powered by Groq OpenAI
         </a>
       </header>
 
