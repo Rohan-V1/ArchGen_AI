@@ -40,7 +40,8 @@ export function normalizeReport(report) {
     scaling: toArray(report?.scaling),
     deployment: toArray(report?.deployment),
     productNotes: toArray(report?.productNotes),
-    deliveryChecklist: toArray(report?.deliveryChecklist)
+    deliveryChecklist: toArray(report?.deliveryChecklist),
+    googleAgentReview: report?.googleAgentReview || null,
+    agentPipeline: report?.agentPipeline || null
   };
 }
-

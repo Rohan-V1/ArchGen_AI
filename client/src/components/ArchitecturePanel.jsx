@@ -10,6 +10,16 @@ export default function ArchitecturePanel({ report }) {
 
   return (
     <div className="report-grid">
+      {report.agentPipeline ? (
+        <SectionCard
+          title="AI Agent Pipeline"
+          tone="accent"
+          content={[
+            `Stage 1: ${report.agentPipeline.primaryGenerator}`,
+            `Stage 2: ${report.agentPipeline.secondaryReviewer}`
+          ]}
+        />
+      ) : null}
       <SectionCard
         title="Suggested System Architecture"
         subtitle={report.architecture.pattern}
@@ -29,9 +39,22 @@ export default function ArchitecturePanel({ report }) {
       <SectionCard title="Security Recommendations" content={report.security} />
       <SectionCard title="Scaling Suggestions" content={report.scaling} />
       <SectionCard title="Deployment Recommendations" content={report.deployment} tone="accent" />
+      {report.googleAgentReview ? (
+        <SectionCard
+          title="Google Agent Verdict"
+          subtitle={report.googleAgentReview.verdict}
+          tone="highlight"
+          content={[
+            report.googleAgentReview.summary,
+            ...report.googleAgentReview.mvpRisks.map((item) => `MVP risk: ${item}`),
+            ...report.googleAgentReview.missingModules.map((item) => `Missing module: ${item}`),
+            ...report.googleAgentReview.securityGaps.map((item) => `Security gap: ${item}`),
+            ...report.googleAgentReview.refinements.map((item) => `Refinement: ${item}`)
+          ]}
+        />
+      ) : null}
       <SectionCard title="Delivery Checklist" content={report.deliveryChecklist} />
       <SectionCard title="Product Notes" content={report.productNotes} />
     </div>
   );
 }
-

@@ -37,9 +37,7 @@ export default function App() {
           <span className="brand-mark">ArchGen AI</span>
           <p>Requirement to System Architecture Generator</p>
         </div>
-        <a href="https://groq.com/" target="_blank" rel="noreferrer">
-          Powered by Groq OpenAI
-        </a>
+        <p className="topbar__stack">Groq generator + Google review agent</p>
       </header>
 
       <main className="layout">
@@ -57,15 +55,15 @@ export default function App() {
           <div className="hero__panel">
             <div className="stat-card">
               <span>Prototype scope</span>
-              <strong>Single focused workflow</strong>
+              <strong>Two-stage AI planning workflow</strong>
             </div>
             <div className="stat-card">
               <span>Output quality</span>
               <strong>Architect-style structured report</strong>
             </div>
             <div className="stat-card">
-              <span>Deployment</span>
-              <strong>Vercel + Render friendly</strong>
+              <span>Google agent</span>
+              <strong>Gemini architecture review pass</strong>
             </div>
           </div>
         </section>

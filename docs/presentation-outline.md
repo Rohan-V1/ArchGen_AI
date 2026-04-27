@@ -3,7 +3,7 @@
 ## Slide 1: Title
 
 **Requirement to System Architecture Generator**  
-AI-Powered Requirement Analysis using Groq + Llama 3
+AI-Powered Requirement Analysis using Groq + Llama 3 + Google Gemini Review Agent
 
 ## Slide 2: Problem Statement
 
@@ -29,6 +29,7 @@ AI-Powered Requirement Analysis using Groq + Llama 3
 - Requirement-to-architecture conversion
 - Professional structured output
 - Groq API integration with Llama 3
+- Google Gemini review agent for second-pass validation
 - Modern web interface
 - Fast MVP deployment on free platforms
 
@@ -37,6 +38,7 @@ AI-Powered Requirement Analysis using Groq + Llama 3
 - Frontend: React + Vite
 - Backend: Node.js + Express
 - AI Layer: Groq API with Llama 3
+- Review Agent: Google Gemini
 - Deployment: Vercel + Render
 
 ## Slide 6: System Workflow
@@ -44,8 +46,8 @@ AI-Powered Requirement Analysis using Groq + Llama 3
 1. User enters project requirement
 2. Frontend sends request to Express backend
 3. Backend uses a strong prompt with Groq Llama 3
-4. AI returns structured architecture recommendations
-5. Frontend displays the results as an architect-style report
+4. Google Gemini review agent validates the generated plan
+5. Frontend displays both the architecture blueprint and the review verdict
 
 ## Slide 7: Architecture Output Example
 
@@ -59,6 +61,7 @@ AI-Powered Requirement Analysis using Groq + Llama 3
 ## Slide 8: Innovation
 
 - Bridges business language and technical planning
+- Uses a dual-AI workflow: generation plus validation
 - Helps teams move from idea to execution faster
 - Useful for education, freelancing, and startup ideation
 
@@ -75,4 +78,3 @@ AI-Powered Requirement Analysis using Groq + Llama 3
 - Reduces planning effort
 - Improves communication between clients and developers
 - Demonstrates practical AI usage in software engineering
-

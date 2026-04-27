@@ -1,6 +1,6 @@
 # Requirement to System Architecture Generator
 
-An AI-powered web application that converts raw business requirements into a professional system architecture recommendation using **Groq API + Llama 3**, **React**, **Node.js**, and **Express**.
+An AI-powered web application that converts raw business requirements into a professional system architecture recommendation using **Groq API + Llama 3**, **React**, **Node.js**, and **Express**, with a **Google Gemini review agent** for second-pass validation.
 
 ## What it does
 
@@ -17,6 +17,7 @@ The application returns a structured software architect-style report covering:
 - Security recommendations
 - Scaling suggestions
 - Deployment recommendations
+- Google agent review verdict
 
 ## Project goals
 
@@ -39,6 +40,7 @@ Archgen_AI/
 - Frontend: React + Vite
 - Backend: Node.js + Express
 - AI Model: Groq API with Llama 3
+- Google Agent Layer: Gemini review agent
 - Styling: Custom CSS
 - Deployment:
   - Frontend: Vercel
@@ -64,6 +66,9 @@ PORT=5000
 GROQ_API_KEY=your_groq_api_key_here
 CLIENT_ORIGIN=http://localhost:5173
 GROQ_MODEL=llama3-70b-8192
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-2.0-flash
+VERCEL_PROJECT_NAME=your-vercel-project-name
 ```
 
 ### 3. Run the backend
@@ -88,6 +93,9 @@ npm run dev
 - `GROQ_API_KEY`: Your Groq API key
 - `CLIENT_ORIGIN`: Allowed frontend origin for CORS
 - `GROQ_MODEL`: Groq model name, default `llama3-70b-8192`
+- `GEMINI_API_KEY`: Google Gemini API key for the review agent
+- `GEMINI_MODEL`: Gemini model name, default `gemini-2.0-flash`
+- `VERCEL_PROJECT_NAME`: Optional Vercel project slug for preview deployment CORS support
 
 ### Client
 
@@ -138,7 +146,19 @@ Response:
     "scaling": ["Introduce Redis caching"],
     "deployment": ["Vercel for frontend", "Render for backend"],
     "productNotes": ["Good for hackathon MVP"],
-    "deliveryChecklist": ["Create wireframe", "Configure Groq key"]
+    "deliveryChecklist": ["Create wireframe", "Configure Groq key"],
+    "googleAgentReview": {
+      "verdict": "Hackathon-ready with a few targeted refinements.",
+      "summary": "...",
+      "mvpRisks": ["..."],
+      "missingModules": ["..."],
+      "securityGaps": ["..."],
+      "refinements": ["..."]
+    },
+    "agentPipeline": {
+      "primaryGenerator": "Groq Llama architecture generator",
+      "secondaryReviewer": "Google Gemini review agent"
+    }
   }
 }
 ```
@@ -178,7 +198,17 @@ npm start
 GROQ_API_KEY=your_key
 CLIENT_ORIGIN=https://your-vercel-app.vercel.app
 GROQ_MODEL=llama3-70b-8192
+GEMINI_API_KEY=your_key
+GEMINI_MODEL=gemini-2.0-flash
+VERCEL_PROJECT_NAME=your-vercel-project-name
 ```
+
+## Hackathon angle
+
+This prototype now uses a two-stage AI pipeline:
+
+1. **Groq Llama generator** creates the architecture blueprint from raw requirements.
+2. **Google Gemini review agent** performs a second-pass MVP validation for risks, missing modules, security gaps, and refinements.
 
 ## Submission assets
 
@@ -193,4 +223,3 @@ GROQ_MODEL=llama3-70b-8192
 - Export database schema suggestions
 - Save architecture history locally
 - Compare multiple tech stack options
-

@@ -78,6 +78,12 @@ textarea {
   font-size: 0.95rem;
 }
 
+.topbar__stack {
+  margin: 0;
+  color: #9bb0c3;
+  font-size: 0.95rem;
+}
+
 .brand-mark {
   display: inline-block;
   padding: 8px 12px;
@@ -380,4 +386,3 @@ textarea:focus {
     flex-direction: column;
   }
 }
-

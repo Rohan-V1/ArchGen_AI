@@ -12,7 +12,10 @@ export async function generateArchitecture(requirement) {
     body: JSON.stringify({ requirement })
   });
 
-  const payload = await response.json();
+  const contentType = response.headers.get("content-type") || "";
+  const payload = contentType.includes("application/json")
+    ? await response.json()
+    : { message: "Server returned a non-JSON response. Check the deployed API URL and backend logs." };
 
   if (!response.ok) {
     throw new Error(payload.message || "Failed to generate architecture.");

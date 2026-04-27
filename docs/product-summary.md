@@ -6,7 +6,7 @@
 
 ## One-line pitch
 
-ArchGen AI turns raw business requirements into professional system architecture recommendations in seconds.
+ArchGen AI turns raw business requirements into professional system architecture recommendations, then uses a Google review agent to validate the result.
 
 ## Core value
 
@@ -23,6 +23,7 @@ Non-technical stakeholders can describe an app idea in plain English, and the sy
 
 - Single-page requirement input
 - AI-generated architecture report
+- Google agent review pass
 - Strong presentation and structured output
 - Clean UI with enterprise feel
 
@@ -30,6 +31,6 @@ Non-technical stakeholders can describe an app idea in plain English, and the sy
 
 - Solves a real software planning problem
 - Uses AI for architecture reasoning, not just chat
+- Includes a second-stage Google agent for architecture validation
 - Produces actionable sections developers actually use
 - Looks professional enough for demos, judging, and portfolio showcases
-
